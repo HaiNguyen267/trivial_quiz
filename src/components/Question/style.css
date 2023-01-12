@@ -1,0 +1,25 @@
+.Question {
+    margin: 10px 0;
+}
+
+.question-title {
+    font-size: 1.6em;
+}
+
+.answer-container {
+    margin: 10px 0;
+    display: flex;
+    gap: 10px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .answer-container {
+        flex-direction: column;
+    }
+
+    .Answer {
+        width: fit-content
+    }
+}
+    

@@ -1,0 +1,33 @@
+.answer-text {
+    font-size: 1.1em;
+    border: 1px solid white;
+    padding: 0px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+.answer-text:hover {
+    background:rgb(220, 218, 218);
+    color: black;
+}
+
+.selected .answer-text{
+    background: white;
+    color: black;
+}
+
+
+
+.correct .answer-text{
+    background: lightgreen;
+    border: 1px solid lightgreen;
+    color: black;
+}
+
+.wrong .answer-text{
+    background: rgb(255, 75, 75);
+    border: 1px solid rgb(255, 75, 75);
+    color: black;
+}
+

@@ -1,7 +1,26 @@
 
 import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+import { QuizDataContext } from '../../App'
+
 import './style.css'
 export default function Home() {
+
+    const [quizData, setQuizData] = useContext(QuizDataContext)
+
+    function handleOnChange(e) {
+        const { name, value } = e.target
+
+        setQuizData(quizData => {
+            return {
+                ...quizData,
+                [name]: value
+            }
+        })
+        
+    }
+    const difficultyLevels = ['Any', 'Easy', 'Medium', 'Hard']
+    
     const navigate = useNavigate()
     return (
         <div className='Home'>
@@ -10,15 +29,27 @@ export default function Home() {
             <div className="form">
                 <label htmlFor="question-numer">
                     <p>Question number: </p>
-                    <input type="number" defaultValue={5} min={1} />
+                    <input
+                            name='questionNumber'
+                            type="number" 
+                            value={quizData.questionNumber} 
+                            min={1}
+                            onChange={handleOnChange}
+                    />
                 </label>
+
                 <label htmlFor="">
                     <p>Difficulty level:</p>
-                    <select>
-                        <option value="any">Any</option>
-                        <option value="easy">Easy</option>
-                        <option value="medium">Medium</option>
-                        <option value="hard">Hard</option>
+                    <select name='difficultyLevel' 
+                            onChange={handleOnChange}
+                    >
+                        {difficultyLevels.map((level, index) => 
+                            <option value={level} 
+                                    selected={quizData.difficultyLevel.toLowerCase() === level.toLowerCase()}
+                            >
+                                {level}
+                            </option>
+                        )}
                     </select>
                 </label>
 
