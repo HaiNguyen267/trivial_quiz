@@ -11,10 +11,10 @@ export default function Answer({ answer, correctAnswer, selectedAnswer, setSelec
     const [styleName, setStyleName] = useState('Answer')
 
 
-//     useEffect(() => {
-//         // when the user clicks 'Try again' btn, the questions are reset
-//         setStyleName('Answer')
-//     }, [answer])
+    useEffect(() => {
+        // when the user clicks 'Try again' btn, the questions are reset
+        setStyleName('Answer')
+    }, [selectedAnswer])
     
     // check if the answer is selected
     useEffect(() => {
